@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Giriş Yap</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin-bottom: 5px;
+      font-size: 36px;
+      color: #ff0000;
+      text-shadow: 2px 2px 0 #22c55e ;
+      background-size: 32px 32px;
+
+      
+    }
+    input {
+      padding: 10px;
+      margin: 8px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #22c55e;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+    .success {
+      color: #22c55e;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Ayyıldız Tim</h2>
+  <h1>Giriş Yap</h1>
+  <input type="text" id="username" placeholder="Kullanıcı Adı">
+  <input type="password" id="password" placeholder="Şifre">
+  <button onclick="login()">Giriş</button>
+  <div id="message"></div>
+
+  <script>
+    const validUser = "ayyildiz";
+    const validPass = "12345";
+
+    function login() {
+      const u = document.getElementById("username").value;
+      const p = document.getElementById("password").value;
+      const msg = document.getElementById("message");
+
+      if (u === validUser && p === validPass) {
+        msg.innerHTML = "<div class='success'>Giriş başarılı. Yönlendiriliyor...</div>";
+        setTimeout(() => {
+          document.body.innerHTML = "<h1>🌐 Siteye hoş geldin, " + u + "!</h1>";
+        }, 1500);
+      } else {
+        msg.innerHTML = "<div class='error'>Kullanıcı adı veya şifre yanlış.</div>";
+      }
+    }
+  </script>
+</body>
+</html>
